@@ -1,0 +1,39 @@
+BASIC BST SEARCH PSEUDOCODE WEEK 4
+(ITERATIVE)
+
+
+BIN-TREE-FIND(tree, target)
+	cur_node ← tree.root 
+	WHILE cur_node ≠ Ø 
+    		IF cur_node.value = target 
+        		RETURN cur_node (or TRUE)(or cur_node.value)
+    		ELSE IF cur_node.value > target 
+        		cur_node ← cur_node.left
+    		ELSE 
+        		cur_node ← cur_node.right  
+	RETURN FALSE 
+//note that BST code is object oriented. 
+//that means ‘self’ is the argument rather than ‘tree’; //tree is the object this method works on 
+
+
+
+
+BASIC BST SEARCH PSEUDOCODE WEEK 4
+(RECURSIVE)
+
+
+BIN-TREE-FIND(tree, target) 
+	IF tree.root
+		if tree._BIN-TREE-FIND(target, tree.root)
+			RETURN True
+		RETURN False
+	ELSE
+		RETURN None
+
+_BIN-TREE-FIND(tree, target, cur_node)
+	IF target > cur_node.data AND cur_node.right
+		RETURN tree._BIN-TREE-FIND(target, cur_node.right)
+	ELSE IF target < cur_node.data AND cur_node.left
+		RETURN tree._BIN-TREE-FIND(target, cur_node.left)
+	IF target == cur_node.data
+		RETURN True
